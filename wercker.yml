@@ -20,7 +20,7 @@ build:
       cache_repo: true
       version: 3.5.2
 
-#Build docker image and push to Docker hub.
+#Build docker image and push to Docker hub
 push-to-registry:
   box: openjdk:8-jdk
   steps:
