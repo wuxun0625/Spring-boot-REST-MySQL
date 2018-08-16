@@ -16,7 +16,7 @@ build:
   steps:
     # https://github.com/wercker/step-maven
     - wercker/maven:
-      goals: install -DskipTestss
+      goals: install -Dmaven.test.skip=true
       cache_repo: true
       version: 3.5.2
 
