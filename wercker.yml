@@ -19,6 +19,13 @@ build:
       goals: install
       cache_repo: true
       version: 3.5.2
+    - script:
+        name: Execute sonarqube analyze process
+        code: |
+          mvn sonar:sonar -Dsonar.host.url=$SONAR_URL > ./temp_output
+          SONAR_GET_REPORT_URL=`cat ./temp_output | grep "More about the report processing at " | awk -F 'at ' '{print substr($2,1)}'`
+          cat ./temp_output
+          echo $SONAR_GET_REPORT_URL
 
 #Build docker image and push to Docker hub
 push-to-registry:
